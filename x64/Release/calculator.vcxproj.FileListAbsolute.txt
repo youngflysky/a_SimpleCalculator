@@ -1,1 +1,0 @@
-F:\github\calculator\x64\Release\calculator.exe
