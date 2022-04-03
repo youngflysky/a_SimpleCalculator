@@ -11,22 +11,24 @@ typedef struct LNode
 	}URegion;
 	struct LNode* next;
 }LNode;
+typedef LNode* SList;
+SList createSList(int n=1);
 
 class characterInput
 {
 public:
 	characterInput();//default Constructor
 	characterInput(const characterInput& p) :		//copy Constructor
-		headPointer(p.headPointer), tailPointer(p.tailPointer)
+		CalList(p.CalList), tailPointer(p.tailPointer)
 	{
 	};
 
 	~characterInput();
 private:
-	LNode* headPointer;
+	SList CalList; 
 	LNode* tailPointer;
 public:
-	//Input valid data from keybord , storage LNode list ,and return headPointer 
+	//Input valid data from keybord , storage LNode list ,and return CalList 
 	LNode* Input();
 
 	int quantity(); //return quantity of the elements of list;

@@ -4,10 +4,18 @@
 #include <cmath>
 using namespace std;
 
+SList createSList(int n)
+{
+	LNode* s;
+	s = (LNode*)malloc(n * sizeof(LNode));
+	s->next = NULL;
+	return s;
+}
+
 characterInput::characterInput()
 {
-	headPointer = (LNode*)malloc(sizeof(LNode));
-	tailPointer = headPointer;
+	CalList = (LNode*)malloc(sizeof(LNode));
+	tailPointer = CalList;
 }
 characterInput::~characterInput() 
 {
@@ -35,8 +43,7 @@ LNode* characterInput::Input()
 				}
 			} while (1);
 			LNode* s;
-			s = (LNode*)malloc(sizeof(LNode));
-			s->next = NULL;
+			s = createSList();
 			s->Tag = 1;
 			s->URegion.num = tempNum;
 			tailPointer->next = s;
@@ -51,15 +58,14 @@ LNode* characterInput::Input()
 			case '(':
 			case ')':
 				LNode * s;
-				s = (LNode*)malloc(sizeof(LNode));
-				s->next = NULL;
+				s = createSList();
 				s->Tag = 0;
 				s->URegion.op=ch;
 				tailPointer->next = s;
 				tailPointer = s;
 				break;
 			case '=':
-				return headPointer;
+				return CalList;
 			default:
 				cout << "Input Error!";
 				return NULL;
@@ -70,7 +76,7 @@ LNode* characterInput::Input()
 int characterInput::quantity()
 {
 	int i = 0;
-	LNode* q = headPointer->next;
+	LNode* q = CalList->next;
 	while (q)
 	{
 		++i;

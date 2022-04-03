@@ -6,7 +6,7 @@ class Calculator
 {
 public:
 	Calculator();
-	~Calculator();
+	~Calculator(); 
 public:
 	float result()
 	{
