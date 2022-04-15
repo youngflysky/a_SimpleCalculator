@@ -6,28 +6,33 @@ class Calculator
 {
 public:
 	Calculator();
-	~Calculator(); 
+	~Calculator();
+
 public:
 	float result()
 	{
 		initialization();
 		return calIntfix();
 	}
+
 private:
-	characterInput  InPut;
+	characterInput InPut;
+
 private:
-	LNode* PtrL;
+	LNode *PtrL;
 	int n;
 	void initialization();
+
 private:
-	float* numStack;
-	int top1 ;
-	char* chStack;
-	int top2 ;
+	float *numStack;
+	int top1;
+	char *chStack;
+	int top2;
+
 private:
-	int calSub(float opnd1, char op, float opnd2, float& result);
+	int calSub(float opnd1, char op, float opnd2, float &result);
 	int getPriority(char op);
-	int calStackTopTwo(float num[], int& top1, char op[], int& top2);
+	int calStackTopTwo(float num[], int &top1, char op[], int &top2);
 	float calIntfix();
 };
 

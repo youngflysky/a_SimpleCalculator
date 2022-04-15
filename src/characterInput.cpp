@@ -1,32 +1,30 @@
 #include "characterInput.h"
-#include <iostream>
-#include <cstdlib>
 #include <cmath>
+#include <cstdlib>
+#include <iostream>
 using namespace std;
 
 SList createSList(int n)
 {
-	LNode* s;
-	s = (LNode*)malloc(n * sizeof(LNode));
+	LNode *s;
+	s = (LNode *)malloc(n * sizeof(LNode));
 	s->next = NULL;
 	return s;
 }
 
 characterInput::characterInput()
 {
-	CalList = (LNode*)malloc(sizeof(LNode));
+	CalList = (LNode *)malloc(sizeof(LNode));
 	tailPointer = CalList;
 }
-characterInput::~characterInput() 
-{
-};
+characterInput::~characterInput(){};
 
-LNode* characterInput::Input()
+LNode *characterInput::Input()
 {
-	 char ch;
+	char ch;
 	do
 	{
-		 ch=cin.get();
+		ch = cin.get();
 		if (ch >= '0' && ch <= '9')
 		{
 			float tempNum = ch - '0';
@@ -42,7 +40,7 @@ LNode* characterInput::Input()
 					break;
 				}
 			} while (1);
-			LNode* s;
+			LNode *s;
 			s = createSList();
 			s->Tag = 1;
 			s->URegion.num = tempNum;
@@ -51,24 +49,24 @@ LNode* characterInput::Input()
 		}
 		switch (ch)
 		{
-			case '+':
-			case '-':
-			case '*':
-			case '/':
-			case '(':
-			case ')':
-				LNode * s;
-				s = createSList();
-				s->Tag = 0;
-				s->URegion.op=ch;
-				tailPointer->next = s;
-				tailPointer = s;
-				break;
-			case '=':
-				return CalList;
-			default:
-				cout << "Input Error!";
-				return NULL;
+		case '+':
+		case '-':
+		case '*':
+		case '/':
+		case '(':
+		case ')':
+			LNode *s;
+			s = createSList();
+			s->Tag = 0;
+			s->URegion.op = ch;
+			tailPointer->next = s;
+			tailPointer = s;
+			break;
+		case '=':
+			return CalList;
+		default:
+			cout << "Input Error!";
+			return NULL;
 		}
 	} while (1);
 }
@@ -76,7 +74,7 @@ LNode* characterInput::Input()
 int characterInput::quantity()
 {
 	int i = 0;
-	LNode* q = CalList->next;
+	LNode *q = CalList->next;
 	while (q)
 	{
 		++i;
