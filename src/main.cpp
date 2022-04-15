@@ -21,25 +21,34 @@ int main()
 			 << "Press the space key to clear the screen;" << endl
 			 << "press the \"!\" to terminate the program;" << endl
 			 << "press any other keys to continue;" << endl;
-		char temp = cin.get();
+		char temp;
+		cin.get(temp);
 		switch (temp)
 		{
 		case ' ':
+		{
 			system("cls");
 			cin.get();
 			break;
+		}
 		case '!':
+		{
 			flag = 0;
 			break;
+		}
 		case '\n':
+		{
 			cout << endl
 				 << endl;
 			break;
+		}
 		default:
+		{
 			cin.get();
 			cout << endl
 				 << endl;
 			break;
+		}
 		}
 	}
 	return 0;
