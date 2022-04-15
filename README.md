@@ -1,4 +1,7 @@
-# a_SimpleCalculator
+# a_SimpleCalculator [VSCode 编辑]
+
+*这个分支使用VSCode进行编辑*
+
 ## version1 能够完成整数的四则运算；结果可以是小数
 
 1. 从键盘读入一行中则表达式，以“=”作为结束的标志；
