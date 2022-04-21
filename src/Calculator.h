@@ -1,5 +1,6 @@
 #ifndef _CALCULATOR_H_
 #define _CALCULATOR_H_
+#include "characterInput.h"
 #define MIN 0.001
 class Calculator
 {
