@@ -1,36 +1,24 @@
-#ifndef _CHARACTERINPUT_H_
-#define _CHARACTERINPUT_H_
+#ifndef _INPUTEXP_H
+#define _INPUTEXP_H
 
-typedef struct LNode
-{
-	int Tag; // Tag==0,URegion storage op£¬Tag==1 storage num;
-	union
-	{
-		char op;
-		float num;
-	} URegion;
-	struct LNode *next;
-} LNode;
-typedef LNode *SList;
-SList createSList(int n = 1);
-
-class characterInput
+class OperationObject
 {
 public:
-	characterInput();						  // default Constructor
-	characterInput(const characterInput &p) : // copy Constructor
-											  CalList(p.CalList), tailPointer(p.tailPointer){};
-
-	~characterInput();
+	OperationObject(char getNum);
+	~OperationObject();
 
 private:
-	SList CalList;
-	LNode *tailPointer;
+	union Object
+	{
+		float num;
+		char op;
+	};
 
-public:
-	// Input valid data from keybord , storage LNode list ,and return CalList
-	LNode *Input();
-
-	int quantity(); // return quantity of the elements of list;
+	static int lengthOfExp;
 };
-#endif // !_CHARACTERINPUT_H_
+
+class ArrayOfExp
+{
+};
+
+#endif // !_INPUTEXP_H
